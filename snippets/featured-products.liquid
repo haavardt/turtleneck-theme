@@ -1,0 +1,20 @@
+<!-- snippets/featured-products.liquid -->
+<div class="wrapper">
+
+
+<div class="grid">
+
+  {% comment %}
+    Loop through products in your Frontpage collection.
+    This collection is created by default, but you must add products to it.
+
+    See the snippet 'snippets/product-grid-collage.liquid'.
+  {% endcomment %}
+
+
+      {% for product in collections[settings.home_featured_products].products %}
+        {% include 'product-grid-item' %}
+      {% endfor %}
+
+</div>
+</div>
