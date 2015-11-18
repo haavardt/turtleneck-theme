@@ -338,7 +338,6 @@
 
     <main class="main-content" role="main">
          {{ content_for_layout }}
-    </main>
 
     {% if settings.footer_newsletter_enable %}
       <div class="newsletter">
@@ -359,9 +358,9 @@
             {% assign form_action = '#' %}
           {% endif %}
           <form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
-            <label for="Email" class="newsletter__label hidden-label">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
-            <div class="input-group">
-              <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="Email" class="input-group-field newsletter__input" autocorrect="off" autocapitalize="off">
+            <label for="Email" class="newsletter__label">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+            <div class="input-group input-group-center">
+              <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" name="EMAIL" id="Email" class="input-group-field newsletter__input" autocorrect="off" autocapitalize="off">
               <span class="input-group-btn">
                 <button type="submit" class="btn newsletter__submit" name="subscribe" id="Subscribe">
                   <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
@@ -374,7 +373,10 @@
       </div>
     {% endif %}
 
-    <hr class="hr--large">
+    </main>
+
+
+
     <footer class="site-footer small--text-center" role="contentinfo">
       <div class="wrapper">
 

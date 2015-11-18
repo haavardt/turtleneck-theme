@@ -73,6 +73,31 @@ theme.initCache = function () {
   };
 };
 
+theme.initAnimateScrollTo = function () {
+  theme.cache.$siteNav.find("li a").on("click", function(e) {
+    var examineHash = $(this).attr("href").replace("/", "");
+
+    if (examineHash.indexOf("#") === 0 ) {
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: $(examineHash).offset().top - 20
+      }, 1000);
+    }
+
+  });
+}
+
+theme.initShowNavOnScroll = function() {
+  $(window).on('scroll', function() {
+    var y_scroll_pos = window.pageYOffset;
+    var scroll_pos_test = 900;             // set to whatever you want it to be
+
+    if(y_scroll_pos > scroll_pos_test) {
+        $(".site-header").addClass("nav-passed-scroll");
+    }
+});
+}
+
 theme.init = function () {
   theme.initCache();
   theme.setBreakpoints();
@@ -85,6 +110,8 @@ theme.init = function () {
   theme.hideSingleSelectors();
   theme.styleTextLinks();
   theme.searchModal();
+  theme.initAnimateScrollTo();
+  theme.initShowNavOnScroll();
 
   {% if settings.product_zoom_enable %}
     theme.productImageZoom();

@@ -1,7 +1,3 @@
-{% if section_number > 1 and number_of_index_sections > 1 %}
-  <hr class="hr--medium hr--clear">
-{% endif %}
-
 {% comment %}
   Set hero as enabled so JS is loaded at end of index.liquid.
   Also set variables to control JS settings and appearance.
@@ -21,10 +17,7 @@
   {% assign hero_full_height = true %}
 {% endif %}
 
-<!-- Hero is full width, so close .wrapper -->
-{% if hero_full_width %}
-  </div>
-{% endif %}
+
 
   <div class="hero{% if hero_full_height %} hero--full-height{% endif %}{% if hero_first_on_page %} hero--first{% endif %}" id="Hero">
     {% for i in (1..6) %}
@@ -37,7 +30,7 @@
       {% capture slide_link %}hero_slide_{{ i }}_link{% endcapture %}
       {% if settings[slide] %}
         <div class="hero__slide {{ settings[slide_text_color] }}" data-color="{{ settings[slide_text_color] }}">
-          {% if hero_full_height %}          
+          {% if hero_full_height %}
             {% comment %}
               Full-screen styles use CSS background images
             {% endcomment %}
@@ -73,7 +66,3 @@
     {% endfor %}
   </div>
 
-<!-- Reopen .wrapper after full-width hero -->
-{% if hero_full_width %}
-  <div class="wrapper">
-{% endif %}

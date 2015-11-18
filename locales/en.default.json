@@ -31,8 +31,8 @@
       "share_on_fancy": "Fancy"
     },
     "newsletter_form": {
-      "newsletter_email": "Sign up to our mailing list",
-      "submit": "Subscribe"
+      "newsletter_email": "Join our mailinglist to receive updates and special offers",
+      "submit": "Sign up"
     },
     "search": {
       "no_results_html": "Your search for \"{{ terms }}\" did not yield any results.",

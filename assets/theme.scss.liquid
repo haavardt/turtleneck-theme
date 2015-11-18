@@ -1059,7 +1059,6 @@ blockquote {
 
 /*================ Partials | Theme Form Overrides ================*/
 label {
-  @include bodyFontItalic;
   font-weight: normal;
 }
 
@@ -1083,7 +1082,8 @@ textarea,
 select {
   @include bodyFontItalic;
   font-size: em(18px);
-  border-color: transparent;
+  border: 1px solid;
+  border-color: $colorBorder;
   background-color: $colorInputBg;
   color: color-control($colorInputBg);
   @include transition(opacity 0.4s ease-out);
@@ -1139,13 +1139,11 @@ input[type="image"] {
 
 /*================ Newsletter area ================*/
 .newsletter {
-  background-color: $colorNewsletter;
-  padding: $gutter 0;
-  margin-top: $gutter * 2;
-
-  @include at-query($min, $postSmall) {
-    padding: ($gutter * 2) 0;
-  }
+    position: relative;
+    float: left;
+    width: 100%;
+    bottom: 210px;
+  text-align: center;
 
   form {
     margin: 0 auto;
@@ -1153,12 +1151,8 @@ input[type="image"] {
     padding: $gutter / 3;
   }
 
-  form,
   .newsletter__input {
-    background-color: $colorBody;
-  }
-
-  .newsletter__input {
+    width: 320px;
     font-size: em(18px);
     -moz-appearance: textfield;
     -webkit-appearance: textfield;
@@ -1212,9 +1206,14 @@ input[type="image"] {
     display: none;
   }
 }
-
+.newsletter__submit {
+  width: 180px;
+}
 .newsletter__label {
-  padding-left: 10px;
+  color: $colorDrawerText;
+  display: block;
+  margin-bottom:  10px;
+  font-size: em(30px);
 }
 
 /*================ Modules | Theme product collage grid ================*/
@@ -1369,13 +1368,16 @@ a {
 .btn--secondary {
   @include accentFontStack;
   padding: 12px 20px;
-  font-size: em(13px);
 }
 
 .input-group .btn,
 .input-group .btn--secondary,
 .input-group .input-group-field {
   height: 45px;
+}
+
+.input-group-center {
+  margin: 0 auto;
 }
 
 /*================ Button loading indicator, when supported ================*/
@@ -2232,10 +2234,6 @@ $slick-opacity-not-active: 0.25;
 }
 
 /* Dots */
-
-.slick-slider {
-  margin-bottom: 30px;
-}
 .slick-dots {
   position: absolute;
   bottom: -45px;
@@ -2427,7 +2425,8 @@ $slick-opacity-not-active: 0.25;
 .site-nav__link {
   @include transition('color 0.2s, opacity 0.1s');
   @include accentFontStack;
-  font-size: em(14px);
+  font-size: em(16px);
+  font-weight: bold;
 
   .is-light & {
     color: #fff;
@@ -3355,11 +3354,9 @@ video#bgvid {
   display: table;
   width: 100%;
   position: absolute;
-  background-color: rgba(0,0,0,0.2);
-  background-image:    radial-gradient( circle, transparent, #000 );
 
   .video-overlay {
-    color: {{ settings.color_hero_text }};
+    color: {{ settings.color_video_text }};
     display: table-cell;
     text-align: center;
     vertical-align: middle;
@@ -3419,3 +3416,191 @@ background: rgb(88, 89, 91);
     width: 50%;
 }
 
+
+.mega {
+  font-size:  2.3em;
+  margin-top: 50%;
+  display: block;
+}
+
+
+.grid.flexbox {
+  max-height: 600px;
+}
+
+.grid.text-columns.flexbox{
+    background: #f6f6f6;
+  color: #111;
+}
+
+.join-mailinglist {
+  text-align: center;
+}
+
+.newsletter form .button {
+  background-color: rgb(8, 109, 182);
+  color: #fff;
+}
+
+
+.site-footer {
+  background: #6c7073;
+  color: #fff;
+  padding: 20px 0 5px 0;
+  position: absolute;
+  width: 100%;
+}
+
+.site-footer a {
+  color: #fff;
+}
+
+.product {
+  padding: 0;
+  margin-bottom: 100px;
+}
+
+.main-spacer {
+  height:  70px;
+}
+
+.product-title {
+  display: block;
+  font-size: em(30px);
+  line-height: 1.2em;
+}
+
+.product-price-wrap {
+  display: block;
+  padding: 30px 0;
+}
+
+.product-price {
+  font-size: em(16px);
+}
+
+.product-quote {
+  margin-top: em(30px);
+  font-size:  em(18px);
+  padding: 0 em(40px);
+}
+
+.product-meta {
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px 0px 20px;
+}
+
+.add-to-cart-btn {
+  font-size: em(14px);
+  font-weight: 700;
+  padding: 8px 8px 4px 8px;
+  background-color: #fff;
+  color: #7a8484;
+  text-transform: uppercase;
+}
+
+.reserve-btn {
+  background-color: #fff;
+}
+
+.send-btn {
+  background-color: #fff;
+}
+
+.ok, .error {
+  display: none;
+}
+
+.product-image-wrapper {
+  max-height: 400px;
+  text-align: center;
+}
+
+.reserve-form input {
+    margin-bottom: 6px;
+    padding: 3px 10px;
+    font-size: 1em;
+}
+
+body {
+  background: #fff;
+}
+
+  .video-placeholder {
+    display: none;
+  }
+
+  .video-overlay-subtitle {
+    font-size: em(32px);
+  }
+
+.featured-content {
+    font-size: em(25px);
+    color: {{ settings.color_hero_text }};
+    width: 760px;
+    max-width: 100%;
+    margin: em(80px) auto;
+}
+
+.video-content {
+    font-size: em(25px);
+    color: {{ settings.color_hero_text }};
+    margin: em(80px) auto;
+
+    iframe {
+      width: 760px;
+      height: 436px;
+      max-width: 100%;
+      margin-bottom: em(10px);
+    }
+}
+
+.nav-passed-scroll {
+    position: fixed;
+    width: 100%;
+    -webkit-box-shadow: 0px 2px 9px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 2px 9px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 9px 0px rgba(0,0,0,0.2);
+    z-index: 3;
+}
+
+@media only screen and (max-width : 600px) {
+    .product-title {
+        font-size: 1.2em;
+      }
+
+      .product-meta {
+        padding: 30px 20px 0px 20px;
+      }
+
+    video#bgvid {
+      display: none;
+    }
+
+    .video-placeholder {
+      display: block;
+      height: 100vh;
+      background-size: cover;
+      background: #000 url(http://turtleneck.life/poster.jpg) no-repeat;
+    }
+
+    .text-columns .grid__item {
+      font-size: 0.7em;
+      padding: 20px;
+    }
+
+
+}
+
+@media only screen and (max-width : 920px) {
+
+    .product {
+      width: 100%;
+    }
+
+    .mega {
+      font-size: 1.5em;
+    }
+
+}

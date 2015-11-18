@@ -129,6 +129,16 @@
         "id": "color_hero_text",
         "label": "Hero text",
         "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Video top"
+      },
+      {
+        "type": "color",
+        "id": "color_video_text",
+        "label": "Video overlay text",
+        "default": "#ffffff"
       }
     ]
   },
@@ -980,8 +990,8 @@
             "label": "Video header"
           },
           {
-            "value": "full-image",
-            "label": "Full width image"
+            "value": "video-section",
+            "label": "Video section"
           },
           {
             "value": "featured-products",
@@ -1014,8 +1024,8 @@
             "label": "Video header"
           },
           {
-            "value": "full-image",
-            "label": "Full width image"
+            "value": "video-section",
+            "label": "Video section"
           },
           {
             "value": "featured-products",
@@ -1048,8 +1058,8 @@
             "label": "Video header"
           },
           {
-            "value": "full-image",
-            "label": "Full width image"
+            "value": "video-section",
+            "label": "Video section"
           },
           {
             "value": "featured-products",
@@ -1082,8 +1092,42 @@
             "label": "Video header"
           },
           {
-            "value": "full-image",
-            "label": "Full width image"
+            "value": "video-section",
+            "label": "Video section"
+          },
+          {
+            "value": "featured-products",
+            "label": "Featured products"
+          },
+          {
+            "value": "featured-collections",
+            "label": "Featured collections"
+          },
+          {
+            "value": "home-content",
+            "label": "Featured Content"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "home_section_5",
+        "options": [
+          {
+            "value": "",
+            "label": "(none)"
+          },
+          {
+            "value": "hero",
+            "label": "Hero slideshow"
+          },
+          {
+            "value": "video",
+            "label": "Video header"
+          },
+          {
+            "value": "video-section",
+            "label": "Video section"
           },
           {
             "value": "featured-products",
@@ -1142,17 +1186,17 @@
     ]
   },
   {
-    "name": "Home page - full width image",
+    "name": "Home page - video",
     "settings": [
       {
-        "type": "image",
-        "id": "fw-image.png",
-        "label": "The image"
+        "type": "text",
+        "id": "video_video_url",
+        "label": "Vimeo video URL"
       },
       {
-        "type": "checkbox",
-        "id": "fw-image-fixed",
-        "label": "Should the image be fixed?"
+        "type": "textarea",
+        "id": "video_video_text",
+        "label": "Text"
       }
     ]
   },
@@ -1516,16 +1560,6 @@
       {
         "type": "page",
         "id": "home_page_content",
-        "label": "Choose page"
-      },
-      {
-        "type": "page",
-        "id": "home_page_content_2",
-        "label": "Choose page"
-      },
-      {
-        "type": "page",
-        "id": "home_page_content_3",
         "label": "Choose page"
       }
     ]
