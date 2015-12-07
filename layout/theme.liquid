@@ -306,6 +306,10 @@
                   </a>
                 </li>
 
+                <li class="site-nav__item">
+                  <div id='coin-container'></div>
+                </li>
+
               </ul>
               <!-- //site-nav -->
             </div>
@@ -338,41 +342,6 @@
 
     <main class="main-content" role="main">
          {{ content_for_layout }}
-
-    {% if settings.footer_newsletter_enable %}
-      <div class="newsletter">
-        <div class="wrapper">
-          {% comment %}
-
-            MailChimp is the go-to newsletter service for Shopify.
-            Use the link below to find your MailChimp "form action"
-            and insert it in your site settings.
-
-            MailChimp newsletter integration and requirement:
-             - http://docs.shopify.com/support/configuration/store-customization/where-do-i-get-my-mailchimp-form-action
-
-          {% endcomment %}
-          {% if settings.newsletter_form_action != blank %}
-            {% assign form_action = settings.newsletter_form_action %}
-          {% else %}
-            {% assign form_action = '#' %}
-          {% endif %}
-          <form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
-            <label for="Email" class="newsletter__label">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
-            <div class="input-group input-group-center">
-              <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" name="EMAIL" id="Email" class="input-group-field newsletter__input" autocorrect="off" autocapitalize="off">
-              <span class="input-group-btn">
-                <button type="submit" class="btn newsletter__submit" name="subscribe" id="Subscribe">
-                  <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
-                  <span class="newsletter__submit-text--small">&rarr;</span>
-                </button>
-              </span>
-            </div>
-          </form>
-        </div>
-      </div>
-    {% endif %}
-
     </main>
 
 
@@ -397,13 +366,7 @@
             {% assign num_footer_columns = num_footer_columns | plus: 1 %}
             {% assign extra_footer_linklist_column = false %}
             {% assign footer_linklist_count = linklists.footer.links.size %}
-            {% if footer_linklist_count > 5 %}
-              {% assign extra_footer_linklist_column = true %}
-              {% comment %}
-                We split the links so we'll need another column
-              {% endcomment %}
-              {% assign num_footer_columns = num_footer_columns | plus: 1 %}
-            {% endif %}
+
             {% comment %}
               If we have an odd amount of links, we need to show 1 more link in 1st column
             {% endcomment %}
@@ -452,7 +415,7 @@
           {% endcase %}
 
           {% if linklists.footer.links.size > 0 %}
-            <div class="grid__item {{ footer_column_width }}">
+            <div class="grid__item {{ footer_column_width }} text-center">
               <ul class="no-bullets site-footer__linklist">
                 {% for link in linklists.footer.links %}
 
@@ -462,7 +425,7 @@
           {% if extra_footer_linklist_column and forloop.index == footer_linklist_split %}
               </ul>
             </div>
-            <div class="grid__item {{ footer_column_width }}">
+            <div class="grid__item {{ footer_column_width }} text-center">
               <ul class="no-bullets site-footer__linklist">
           {% endif %}
 
@@ -473,9 +436,28 @@
             </div>
           {% endif %}
 
+          <div class="grid__item {{ footer_column_width }} text-center">
+          <img class="site-footer_logo" src="{{ 'hero_video_overlay_logo.png' | asset_url }}"/>
+          <div class="subtext">Patend pending. Registered trademark.</div>
+            <!--p>&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: '/' }}<br>{{ powered_by_link }}</p-->
+            {% unless shop.enabled_payment_types == empty %}
+              <!--ul class="inline-list payment-icons">
+                {% for type in shop.enabled_payment_types %}
+                  <li>
+                    <span class="icon-fallback-text">
+                      <span class="icon icon-{{ type }}" aria-hidden="true"></span>
+                      <span class="fallback-text">{{ type | replace: '_',' ' }}</span>
+                    </span>
+                  </li>
+                {% endfor %}
+              </ul-->
+            {% endunless %}
+          </div>
+
           {% if footer_social_enable %}
-            <div class="grid__item {{ footer_column_width }}">
-                <ul class="no-bullets social-icons">
+            <div class="grid__item {{ footer_column_width }} text-center">
+              <div class="social-icons">
+                <ul class="no-bullets">
                   {% if settings.social_facebook_link != blank %}
                     <li>
                       <a href="{{ settings.social_facebook_link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Facebook' }}">
@@ -551,24 +533,9 @@
                 </ul>
             </div>
           {% endif %}
-
-          <div class="grid__item {{ footer_column_width }} {% if num_footer_columns == 1 %}text-center{% else %}large--text-right{% endif %}">
-            <p>&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: '/' }}<br>{{ powered_by_link }}</p>
-            {% unless shop.enabled_payment_types == empty %}
-              <ul class="inline-list payment-icons">
-                {% for type in shop.enabled_payment_types %}
-                  <li>
-                    <span class="icon-fallback-text">
-                      <span class="icon icon-{{ type }}" aria-hidden="true"></span>
-                      <span class="fallback-text">{{ type | replace: '_',' ' }}</span>
-                    </span>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endunless %}
-          </div>
+          Turtleneck AS - 912 664 198
         </div>
-
+        </div>
       </div>
     </footer>
 

@@ -10,8 +10,16 @@
   <source src="{{ settings.hero_video_webm | asset_url }}" type="video/webm">
   <source src="{{ settings.hero_video_mp4 | asset_url }}" type="video/mp4">
 </video>
+{{ 'autoplay.js'  | asset_url | script_tag }}
 <script>
-    $(".video-overlay").height($("#bgvid").height());
-    $("#bgvid").on("canplay", function (e) { $(".video-overlay").height($(this).height())  });
+  $(".video-overlay").height($( window ).height());
+
+  $(this).on("play", function (e) { $(".video-overlay").height($(this).height())  });
+
+  $("#bgvid").on("novideoautoplay", function() {
+    $("body").addClass("hide-video");
+  });
+
+  testVideoAutoplay();
   </script>
 

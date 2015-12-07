@@ -1140,6 +1140,48 @@
           {
             "value": "home-content",
             "label": "Featured Content"
+          },
+          {
+            "value": "tech-details",
+            "label": "Tech Details"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "home_section_6",
+        "options": [
+          {
+            "value": "",
+            "label": "(none)"
+          },
+          {
+            "value": "hero",
+            "label": "Hero slideshow"
+          },
+          {
+            "value": "video",
+            "label": "Video header"
+          },
+          {
+            "value": "video-section",
+            "label": "Video section"
+          },
+          {
+            "value": "featured-products",
+            "label": "Featured products"
+          },
+          {
+            "value": "featured-collections",
+            "label": "Featured collections"
+          },
+          {
+            "value": "home-content",
+            "label": "Featured Content"
+          },
+          {
+            "value": "tech-details",
+            "label": "Tech Details"
           }
         ]
       },
@@ -1485,6 +1527,95 @@
         "type": "text",
         "id": "hero_slide_5_link",
         "label": "Link URL"
+      }
+    ]
+  },
+ {
+    "name": "Home page - tech details",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Detail 1"
+      },
+      {
+        "type": "image",
+        "id": "detail_1.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "info": "600px wide required"
+      },
+      {
+        "type": "text",
+        "id": "detail_1_heading",
+        "label": "Heading text"
+      },
+      {
+        "type": "text",
+        "id": "detail_1_text",
+        "label": "Detail text"
+      },
+      {
+        "type": "header",
+        "content": "Detail 2"
+      },
+      {
+        "type": "image",
+        "id": "detail_2.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "info": "600px wide required"
+      },
+      {
+        "type": "text",
+        "id": "detail_2_heading",
+        "label": "Heading text"
+      },
+      {
+        "type": "text",
+        "id": "detail_2_text",
+        "label": "Detail text"
+      },
+      {
+        "type": "header",
+        "content": "Detail 3"
+      },
+      {
+        "type": "image",
+        "id": "detail_3.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "info": "600px wide required"
+      },
+      {
+        "type": "text",
+        "id": "detail_3_heading",
+        "label": "Heading text"
+      },
+      {
+        "type": "text",
+        "id": "detail_3_text",
+        "label": "Detail text"
+      },
+       {
+        "type": "header",
+        "content": "Detail 4"
+      },
+      {
+        "type": "image",
+        "id": "detail_4.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "info": "600px wide required"
+      },
+      {
+        "type": "text",
+        "id": "detail_4_heading",
+        "label": "Heading text"
+      },
+      {
+        "type": "text",
+        "id": "detail_4_text",
+        "label": "Detail text"
       }
     ]
   },

@@ -10,22 +10,24 @@
   {% assign sold_out = false %}
 {% endif %}
 
-
+<a href="{{ product.url | within: collection }}">
 <div class="product flexbox {% if sold_out %} is-sold-out{% endif %}">
-    <div class="product-image-wrapper">
-        <img src="{{ product | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}"  class="product-image">
-      {% if sold_out %}
-        <div class="product-sold-out">
-          <p>{{ 'products.product.sold_out_html' | t }}</p>
-        </div>
-      {% elsif on_sale %}
-        <div class="product-on-sale">
-          {% capture saved_amount %}{{ product.compare_at_price | minus: product.price | money }}{% endcapture %}
-          <p>{{ 'products.general.save_html' | t: saved_amount: saved_amount }}</p>
-        </div>
-      {% endif %}
+      <div class="product-image-wrapper">
+
+          <img src="{{ product | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}"  class="product-image">
+        {% if sold_out %}
+          <div class="product-sold-out">
+            <p>{{ 'products.product.sold_out_html' | t }}</p>
+          </div>
+        {% elsif on_sale %}
+          <div class="product-on-sale">
+            {% capture saved_amount %}{{ product.compare_at_price | minus: product.price | money }}{% endcapture %}
+            <p>{{ 'products.general.save_html' | t: saved_amount: saved_amount }}</p>
+          </div>
+        {% endif %}
 
     </div>
+
 
     <div class="product-meta flex" style="background: {{ product.metafields.product.color }}">
       <span class="product-title">{{ product.title | replace: ' ', '<br>'}}</span>
@@ -38,9 +40,15 @@
       <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-single__form" id="AddToCartForm">
         <input type="hidden" name="id" value="{{ product.variants[0].id }}">
         <div class="product-single__add-to-cart">
+        {% if product.available %}
           <button type="submit" name="add" id="AddToCart" class="add-to-cart-btn">
             <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
           </button>
+          {% else %}
+          <button type="submit" name="add" id="AddToCart" class="add-to-cart-btn" disabled>
+            <span id="AddToCartText">{{ 'products.product.unavailable' | t }}</span>
+          </button>
+          {% endif %}
         </div>
       </form>
 
@@ -49,3 +57,5 @@
       </div>
     </div>
 </div>
+</a>
+

@@ -32,7 +32,7 @@ theme.vendorPrefix = (function () {
 
 theme.variables = {
   productPageLoad     : false,
-  productPageSticky   : true,
+  productPageSticky   : false,
 
   // Breakpoints from src/stylesheets/global/variables.scss.liquid
   mediaQuerySmall     : 'screen and (max-width: 590px)',
@@ -78,24 +78,41 @@ theme.initAnimateScrollTo = function () {
     var examineHash = $(this).attr("href").replace("/", "");
 
     if (examineHash.indexOf("#") === 0 ) {
-      e.preventDefault();
-      $('html, body').animate({
-        scrollTop: $(examineHash).offset().top - 20
-      }, 1000);
+      if ($(examineHash).size()) {
+        e.preventDefault();
+        $('html, body').animate({
+          scrollTop: $(examineHash).offset().top - 150
+        }, 1000);
+      }
     }
 
   });
 }
 
 theme.initShowNavOnScroll = function() {
-  $(window).on('scroll', function() {
-    var y_scroll_pos = window.pageYOffset;
-    var scroll_pos_test = 900;             // set to whatever you want it to be
 
-    if(y_scroll_pos > scroll_pos_test) {
-        $(".site-header").addClass("nav-passed-scroll");
-    }
-});
+  if (theme.cache.$body.hasClass("template-index")) {
+      $nav = $(".site-header");
+
+      var scroll_pos_test = 500;
+
+
+      $(window).on('scroll', function() {
+        var y_scroll_pos = window.pageYOffset;
+
+        if (y_scroll_pos > scroll_pos_test) {
+            theme.cache.$body.addClass("nav-passed-scroll").css("margin-top", $nav.height() + "px");
+            $nav.stop().animate({ top: '0'}, 300);
+        }
+
+        if (y_scroll_pos < scroll_pos_test) {
+            $nav.stop().animate({ top: '-'+$nav.height() }, 300, function()  {
+                theme.cache.$body.removeClass("nav-passed-scroll").css("margin-top", 0);
+            });
+
+        }
+      });
+  }
 }
 
 theme.init = function () {
@@ -119,12 +136,12 @@ theme.init = function () {
 
   // Functions to run on load so image sizes can be calculated
   theme.cache.$window.on('load', theme.resizeLogo);
-  theme.cache.$window.on('load', theme.initStickyProductMeta);
+  //theme.cache.$window.on('load', theme.initStickyProductMeta);
   theme.cache.$window.on('load', theme.articleImages);
 
   // Functions to re-run on resize
   theme.cache.$window.on('resize', theme.debounce(theme.resizeLogo, 150));
-  theme.cache.$window.on('resize', theme.debounce(theme.initStickyProductMeta, 150));
+  //theme.cache.$window.on('resize', theme.debounce(theme.initStickyProductMeta, 150));
 
 };
 
@@ -170,7 +187,7 @@ theme.setBreakpoints = function () {
       unmatch: function () {
         theme.destroyImageCarousel();
         theme.variables.bpSmall = false;
-        theme.initStickyProductMeta();
+        //theme.initStickyProductMeta();
 
         {% if settings.product_zoom_enable %}
           // reinit product zoom

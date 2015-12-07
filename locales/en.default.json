@@ -251,7 +251,7 @@
     "product": {
       "sold_out": "Sold Out",
       "sold_out_html": "Sold<br \/> Out",
-      "unavailable": "Unavailable",
+      "unavailable": "Sold Out",
       "quantity": "Quantity",
       "add_to_cart": "Add to Cart"
     },
