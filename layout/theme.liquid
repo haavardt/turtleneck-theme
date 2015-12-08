@@ -438,7 +438,7 @@
 
           <div class="grid__item {{ footer_column_width }} text-center">
           <img class="site-footer_logo" src="{{ 'hero_video_overlay_logo.png' | asset_url }}"/>
-          <div class="subtext">Patend pending. Registered trademark.</div>
+          <div class="subtext">Patent pending. Registered trademark.</div>
             <!--p>&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: '/' }}<br>{{ powered_by_link }}</p-->
             {% unless shop.enabled_payment_types == empty %}
               <!--ul class="inline-list payment-icons">
@@ -620,5 +620,5 @@
     </div>
   {% endif %}
 
-</body>
+<!-- BEEKETINGSCRIPT CODE START -->{% include 'bk-tracking' %}<!-- BEEKETINGSCRIPT CODE END --></body>
 </html>

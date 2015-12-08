@@ -29,7 +29,7 @@
     </div>
 
 
-    <div class="product-meta flex" style="background: {{ product.metafields.product.color }}">
+    <div class="product-meta flex">
       <span class="product-title">{{ product.title | replace: ' ', '<br>'}}</span>
       <span class="product-price-wrap">
         <span class="product-price">
@@ -41,7 +41,7 @@
         <input type="hidden" name="id" value="{{ product.variants[0].id }}">
         <div class="product-single__add-to-cart">
         {% if product.available %}
-          <button type="submit" name="add" id="AddToCart" class="add-to-cart-btn">
+          <button type="submit" name="add" id="AddToCart" class="add-to-cart-btn" style="background: {{ product.metafields.product.color }}">
             <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
           </button>
           {% else %}
