@@ -127,16 +127,16 @@
   font-family: $accentFontStack;
   font-weight: $accentFontWeight;
   font-style: normal;
-  
+
     letter-spacing: 0.1em;
-  
-  
+
+
 }
 
 @mixin bodyFontItalic {
-  
+
     font-style: italic;
-  
+
 }
 
 @mixin visuallyHidden {
@@ -4238,4 +4238,3 @@ body {
         display: none;
      }
 }
-

@@ -4070,6 +4070,49 @@ body {
       }
 }
 
+.tech-details {
+  margin-bottom: 10em;
+
+  .tech-detail {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .tech-detail-image, .tech-detail-info {
+        width: 50%;
+        float: left;
+      }
+  }
+}
+
+  .tech-details-small {
+    display: none;
+
+    .tech-detail-image {
+      width: 100%;
+    }
+
+    .tech-detail-info {
+      margin: 1.4em 0 3em 0;
+    }
+  }
+
+.tech-detail {
+  color: #6c7073;
+
+  .tech-detail-info {
+    text-align: center;
+  }
+
+  .tech-detail-text {
+    padding: 0 30%;
+  }
+  .tech-detail-heading {
+    font-size: 2em;
+    line-height: 1.1em;
+  }
+}
+
 @media only screen and (max-width : 1250px) {
   .product-price-wrap {
     padding: 10px 0;
@@ -4119,6 +4162,13 @@ body {
 }
 
 @media only screen and (max-width : 920px) {
+  .tech-details-small {
+    display: block;
+  }
+  .tech-details {
+    display: none;
+  }
+
   .video-overlay-subtitle {
     font-size: em(21px);
   }

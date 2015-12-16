@@ -1615,6 +1615,48 @@
         "id": "detail_4_text",
         "label": "Detail text",
         "type": "text"
+      },
+      {
+        "content": "Detail 5",
+        "type": "header"
+      },
+      {
+        "id": "detail_5.jpg",
+        "max-width": 600,
+        "label": "Image",
+        "type": "image",
+        "info": "600px wide required"
+      },
+      {
+        "id": "detail_5_heading",
+        "label": "Heading text",
+        "type": "text"
+      },
+      {
+        "id": "detail_5_text",
+        "label": "Detail text",
+        "type": "text"
+      },
+      {
+        "content": "Detail 6",
+        "type": "header"
+      },
+      {
+        "id": "detail_6.jpg",
+        "max-width": 600,
+        "label": "Image",
+        "type": "image",
+        "info": "600px wide required"
+      },
+      {
+        "id": "detail_6_heading",
+        "label": "Heading text",
+        "type": "text"
+      },
+      {
+        "id": "detail_6_text",
+        "label": "Detail text",
+        "type": "text"
       }
     ],
     "name": "Home page - tech details"
