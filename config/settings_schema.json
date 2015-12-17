@@ -1544,6 +1544,13 @@
         "info": "600px wide required"
       },
       {
+        "id": "detail_1_sm.jpg",
+        "max-width": 920,
+        "label": "Image small screen",
+        "type": "image",
+        "info": "920px wide required"
+      },
+      {
         "id": "detail_1_heading",
         "label": "Heading text",
         "type": "text"
@@ -1563,6 +1570,13 @@
         "label": "Image",
         "type": "image",
         "info": "600px wide required"
+      },
+      {
+        "id": "detail_2_sm.jpg",
+        "max-width": 920,
+        "label": "Image small screen",
+        "type": "image",
+        "info": "920px wide required"
       },
       {
         "id": "detail_2_heading",
@@ -1586,6 +1600,13 @@
         "info": "600px wide required"
       },
       {
+        "id": "detail_3_sm.jpg",
+        "max-width": 920,
+        "label": "Image small screen",
+        "type": "image",
+        "info": "920px wide required"
+      },
+      {
         "id": "detail_3_heading",
         "label": "Heading text",
         "type": "text"
@@ -1606,6 +1627,14 @@
         "type": "image",
         "info": "600px wide required"
       },
+      {
+        "id": "detail_4_sm.jpg",
+        "max-width": 920,
+        "label": "Image small screen",
+        "type": "image",
+        "info": "920px wide required"
+      },
+
       {
         "id": "detail_4_heading",
         "label": "Heading text",
@@ -1628,6 +1657,14 @@
         "info": "600px wide required"
       },
       {
+        "id": "detail_5_sm.jpg",
+        "max-width": 920,
+        "label": "Image small screen",
+        "type": "image",
+        "info": "920px wide required"
+      },
+
+      {
         "id": "detail_5_heading",
         "label": "Heading text",
         "type": "text"
@@ -1648,6 +1685,14 @@
         "type": "image",
         "info": "600px wide required"
       },
+      {
+        "id": "detail_6_sm.jpg",
+        "max-width": 920,
+        "label": "Image small screen",
+        "type": "image",
+        "info": "920px wide required"
+      },
+
       {
         "id": "detail_6_heading",
         "label": "Heading text",
