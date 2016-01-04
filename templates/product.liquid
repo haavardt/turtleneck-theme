@@ -187,6 +187,9 @@
       $('.selector-wrapper').hide();
     {% endif %}
   });
+
+  // Facebook pixel
+  fbq('track', 'ViewContent');
 </script>
 
  {{ 'lightslider.min.js' | asset_url | script_tag }}
