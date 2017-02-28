@@ -1,0 +1,7 @@
+{% if settings.home_page_content != blank %}
+  <div>
+      <div class="rte text-center featured-content">
+        {{ pages[settings.home_page_content].content }}
+      </div>
+  </div>
+{% endif %}

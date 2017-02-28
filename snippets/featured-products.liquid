@@ -1,0 +1,32 @@
+<!-- snippets/featured-products.liquid -->
+<div class="wrapper">
+  <div class="grid" id="shop">
+
+      {% if settings.home_featured_products_content != blank %}
+        <div class="text-center">
+          <h2 class="fp-heading">{{ pages[settings.home_featured_products_content].title }}</h2>
+          <div class="ingress">
+            {{ pages[settings.home_featured_products_content].content }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% for product in collections[settings.home_featured_products].products %}
+        {% include 'product-grid-item' %}
+      {% endfor %}
+
+      {% if settings.home_featured_products_content_2 != blank %}
+        <div class="text-center">
+          <h2 class="fp-heading">{{ pages[settings.home_featured_products_content_2].title }}</h2>
+          <div class="ingress">
+            {{ pages[settings.home_featured_products_content_2].content }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% for product in collections[settings.home_featured_products_2].products %}
+        {% include 'product-grid-item' %}
+      {% endfor %}
+
+  </div>
+</div>

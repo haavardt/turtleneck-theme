@@ -1,0 +1,20 @@
+<!-- snippets/featured-bundles.liquid -->
+<div class="wrapper">
+
+
+<div class="grid text-center" id="bundles">
+
+  {% comment %}
+    Loop through bundle-products in your Frontpage collection.
+    This collection is created by default, but you must add products to it.
+
+    See the snippet 'snippets/product-grid-collage.liquid'.
+  {% endcomment %}
+
+      <h2 class="fp-heading">{{ collections[settings.home_featured_bundles].description }}</h2>
+      {% for product in collections[settings.home_featured_bundles].products %}
+        {% include 'bundle-grid-item' %}
+      {% endfor %}
+
+</div>
+</div>

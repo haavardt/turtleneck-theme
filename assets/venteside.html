@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Turtleneck</title>
+    <style type="text/css">
+    video#bgvid {
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        display: block;
+        z-index: -100;
+        background-size: cover;
+        background: #000 url({{ settings.hero_video_png_fallback | asset_url }}) no-repeat;
+    }
+
+    @media screen and (max-device-width: 800px) {
+        html {
+            background: url({{ settings.hero_video_png_fallback | asset_url }}) #000 no-repeat center center fixed;
+        }
+        #bgvid {
+            display: none;
+        }
+    }
+
+    .over-the-crumb {
+        display: table;
+        width: 100%;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.2);
+        background-image: radial-gradient( circle, transparent, #000);
+        .video-overlay {
+            color: {
+                {
+                    settings.color_hero_text
+                }
+            }
+            ;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+            img {
+                max-width: 50%;
+            }
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="over-the-crumb">
+        <div class="video-overlay">
+            <h1>{{ settings.hero_video_overlay_heading }}</h1>
+            <h3>{{ settings.hero_video_overlay_subtitle }}</h3>
+        </div>
+    </div>
+    <video autoplay loop poster="{{ settings.hero_video_png_fallback | asset_url }}" id="bgvid">
+        <source src="bgfilm.webm" type="video/webm">
+        <source src="bgfilm.m4v" type="video/mp4">
+    </video>
+</body>
+
+</html>

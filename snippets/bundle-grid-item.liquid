@@ -1,0 +1,50 @@
+<!-- /snippets/bundle-grid-item.liquid -->
+
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
+<div class="bundle {% if sold_out %} is-sold-out{% endif %}">
+      <div class="bundle-image-wrapper">
+
+         {% if sold_out %}
+          <div class="ribbon">
+            <span>{{ 'products.product.unavailable' | t }}</span>
+          </div>
+        {% endif %}
+
+          <img src="{{ product | img_url: '1024x1024' }}" alt="{{ product.featured_image.alt | escape }}"  class="bundle-image">
+    </div>
+
+
+    <div class="bundle-meta">
+      <span class="bundle-title">{{ product.title }}</span>
+      <span class="bundle-price">
+          {{ product.price | money_without_trailing_zeros }}
+      </span>
+
+      <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-single__form" id="AddToCartForm">
+        <input type="hidden" name="id" value="{{ product.variants[0].id }}">
+        <div class="product-single__add-to-cart">
+        {% if product.available %}
+          <button type="submit" name="add" id="AddToCart" class="add-to-cart-btn" style="background: black">
+            <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+          </button>
+          {% else %}
+          <button type="submit" name="add" id="AddToCart" class="add-to-cart-btn" style="background: black" disabled>
+            <span id="AddToCartText">{{ 'products.product.unavailable' | t }}</span>
+          </button>
+          {% endif %}
+        </div>
+      </form>
+
+      <div class="bundle-description">{{ product.description }}</div>
+    </div>
+</div>
+

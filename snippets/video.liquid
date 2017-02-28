@@ -1,0 +1,23 @@
+<div class="over-the-crumb">
+  <div class="video-overlay">
+  <img src="{{ 'hero_video_overlay_logo.png' | asset_url }}"/>
+  <h1>{{ settings.hero_video_overlay_heading }}</h1>
+  <h3 class="video-overlay-subtitle">{{ settings.hero_video_overlay_subtitle }}</h3>
+  </div>
+</div>
+<video autoplay loop poster="{{ settings.hero_video_png_fallback | asset_url }}" id="bgvid">
+  <source src="{{ settings.hero_video_webm | asset_url }}" type="video/webm">
+  <source src="{{ settings.hero_video_mp4 | asset_url }}" type="video/mp4">
+</video>
+
+<script>
+  $(".video-overlay").height($( window ).height());
+
+  $(this).on("play", function (e) { $(".video-overlay").height($(this).height())  });
+
+
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+   $("body").addClass("hide-video");
+}
+  </script>
+
