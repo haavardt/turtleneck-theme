@@ -2071,6 +2071,26 @@
         "id": "home_featured_products_content_2",
         "label": "Choose page",
         "type": "page"
+      },
+      {
+        "id": "home_featured_products_3",
+        "label": "Choose collection",
+        "type": "collection"
+      },
+      {
+        "id": "home_featured_products_content_3",
+        "label": "Choose page",
+        "type": "page"
+      },
+      {
+        "id": "home_featured_products_4",
+        "label": "Choose collection",
+        "type": "collection"
+      },
+      {
+        "id": "home_featured_products_content_4",
+        "label": "Choose page",
+        "type": "page"
       }
     ],
     "name": "Home page - featured products"
