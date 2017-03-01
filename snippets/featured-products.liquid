@@ -15,6 +15,7 @@
         {% include 'product-grid-item' %}
       {% endfor %}
 
+<div style="display:none">
       {% if settings.home_featured_products_content_2 != blank %}
         <div class="text-center">
           <h2 class="fp-heading">{{ pages[settings.home_featured_products_content_2].title }}</h2>
@@ -28,5 +29,32 @@
         {% include 'product-grid-item' %}
       {% endfor %}
 
+
+      {% if settings.home_featured_products_content_3 != blank %}
+        <div class="text-center">
+          <h2 class="fp-heading">{{ pages[settings.home_featured_products_content_3].title }}</h2>
+          <div class="ingress">
+            {{ pages[settings.home_featured_products_content_3].content }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% for product in collections[settings.home_featured_products_3].products %}
+        {% include 'product-grid-item' %}
+      {% endfor %}
+</div>
+
+        {% if settings.home_featured_products_content_4 != blank %}
+          <div class="text-center">
+            <h2 class="fp-heading">{{ pages[settings.home_featured_products_content_4].title }}</h2>
+            <div class="ingress">
+              {{ pages[settings.home_featured_products_content_4].content }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% for product in collections[settings.home_featured_products_4].products %}
+          {% include 'product-grid-item' %}
+        {% endfor %}
   </div>
 </div>
